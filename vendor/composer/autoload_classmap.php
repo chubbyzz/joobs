@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddAddressTable' => $baseDir . '/app/database/migrations/2015_02_04_111045_add_address_table.php',
+    'AddCompanyTable' => $baseDir . '/app/database/migrations/2015_04_06_225438_add_company_table.php',
     'AddExperienceTable' => $baseDir . '/app/database/migrations/2015_02_04_110954_add_experience_table.php',
     'AddIconToToolTable' => $baseDir . '/app/database/migrations/2015_02_11_161807_add_icon_to_tool_table.php',
     'AddOwnerToUserTable' => $baseDir . '/app/database/migrations/2015_02_20_002652_add_owner_to_user_table.php',
@@ -125,6 +126,7 @@ return array(
     'ClassPreloader\\Parser\\DirVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/DirVisitor.php',
     'ClassPreloader\\Parser\\FileVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/FileVisitor.php',
     'ClassPreloader\\Parser\\NodeTraverser' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/NodeTraverser.php',
+    'Company' => $baseDir . '/app/models/Company.php',
     'CompanyController' => $baseDir . '/app/controllers/CompanyController.php',
     'CreateCandidateTable' => $baseDir . '/app/database/migrations/2015_02_02_175435_create_candidate_table.php',
     'CreateJobsTable' => $baseDir . '/app/database/migrations/2015_03_25_003739_create_jobs_table.php',
@@ -618,6 +620,8 @@ return array(
     'Jeremeamia\\SuperClosure\\SerializableClosure' => $vendorDir . '/jeremeamia/SuperClosure/src/Jeremeamia/SuperClosure/SerializableClosure.php',
     'Jeremeamia\\SuperClosure\\Visitor\\ClosureFinderVisitor' => $vendorDir . '/jeremeamia/SuperClosure/src/Jeremeamia/SuperClosure/Visitor/ClosureFinderVisitor.php',
     'Jeremeamia\\SuperClosure\\Visitor\\MagicConstantVisitor' => $vendorDir . '/jeremeamia/SuperClosure/src/Jeremeamia/SuperClosure/Visitor/MagicConstantVisitor.php',
+    'Job' => $baseDir . '/app/models/Job.php',
+    'JobsTableSeeder' => $baseDir . '/app/database/seeds/JobsTableSeeder.php',
     'LaravelBook\\Ardent\\Ardent' => $vendorDir . '/laravelbook/ardent/src/LaravelBook/Ardent/Ardent.php',
     'LaravelBook\\Ardent\\Builder' => $vendorDir . '/laravelbook/ardent/src/LaravelBook/Ardent/Builder.php',
     'LaravelBook\\Ardent\\Facades\\Ardent' => $vendorDir . '/laravelbook/ardent/src/LaravelBook/Ardent/Facades/Ardent.php',

@@ -4,7 +4,7 @@ return array(
 
 	'debug' => true,
 
-	'url' => 'http://localhost',
+	'url' => 'joobs.app',
 
 	'timezone' => 'UTC',
 

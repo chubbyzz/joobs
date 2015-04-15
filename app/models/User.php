@@ -83,12 +83,12 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 		}
 		catch (Cartalyst\Sentry\Users\WrongPasswordException $e)
 		{
-			new Notification(["message" => 'Senha incorreta, tente novament.', "type" => "danger"]);
+			new Notification(["message" => 'Usuário ou senha incorretos, tente novament.', "type" => "danger"]);
 			return false;
 		}
 		catch (Cartalyst\Sentry\Users\UserNotFoundException $e)
 		{
-			new Notification(["message" => 'Usuario não encontrado.', "type" => "warning"]);
+			new Notification(["message" => 'Usuário ou senha incorretos, tente novament.', "type" => "warning"]);
 			return false;
 		}
 		catch (Cartalyst\Sentry\Users\UserNotActivatedException $e)
