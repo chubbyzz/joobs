@@ -1,20 +1,42 @@
 <?php
 
 class Job extends \Eloquent {
-    protected $fillable = ['title','description','location','number','salary','requirements','benefits','type','form'];
+	protected $fillable = ['title', 'description', 'location', 'number', 'salary', 'requirements', 'benefits', 'type', 'form'];
 
-    public static $rule = [
-        "title" => "required|min:3|max:255",
-        "description" => "required|min:3",
-        "location" => "required|min:3",
-        "number" => "integer",
-        "salary" => "numeric",
-        "requirements" => "min:3",
-        "benefits" => "min:3",
-        "type" => "in:clt:pj",
-        "form" => "in:remote:attendance",
-    ];
+	public static $rule = [
+		"title" => "required|min:3|max:255|unique",
+		"description" => "required|min:3",
+		"location" => "required|min:3",
+		"number" => "integer",
+		"salary" => "numeric",
+		"requirements" => "min:3",
+		"benefits" => "min:3",
+		"type" => "in:clt:pj",
+		"form" => "in:remote:attendance",
+	];
 
-//    public static $relationsData = [
-//    ];
+	public function getFormAttribute($form) {
+		return trans('job.' . $form);
+	}
+
+	public function setTitleAttribute($title) {
+		$this->attributes['slug'] = Str::slug($title, '-');
+		$this->attributes['title'] = $title;
+	}
+
+	public function salaryToString() {
+		$salary = $this->salary;
+
+		if (is_null($salary)) {
+			return 'N/A';
+		} else if ($salary == 0) {
+			return 'Não remunerado';
+		} else {
+			return $salary;
+		}
+	}
+	public function numberToString() {
+		$number = $this->number;
+		return $number == 0 ? 'N/A' : $number;
+	}
 }

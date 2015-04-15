@@ -1,0 +1,13 @@
+#jobs .title{
+	font-size: 16px !important;
+	color: #f39c12 !important;
+}
+#jobs .job p{
+	color: #7f8c8d;
+}
+#jobs .job a{
+	cursor: pointer;
+}
+.align-center {
+	text-align: center;
+}

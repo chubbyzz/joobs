@@ -9,16 +9,13 @@
 | which may be used to do any work before or after a request into your
 | application. Here you may also register your custom route filters.
 |
-*/
+ */
 
-App::before(function($request)
-{
+App::before(function ($request) {
 	//
 });
 
-
-App::after(function($request, $response)
-{
+App::after(function ($request, $response) {
 	//
 });
 
@@ -31,23 +28,21 @@ App::after(function($request, $response)
 | session is logged into this application. The "basic" filter easily
 | integrates HTTP Basic authentication for quick, simple checking.
 |
-*/
+ */
 
-Route::filter('auth', function()
-{
-//	if(Sentry::check()){
-//        if(is_null(Sentry::getUser()->owner)){
-//            new Notification(['type' => 'warning', 'message' => 'Opa, você ainda nao escolheu se ira ser uma empresa ou um candidato', 'style' => 'bar']);
-//            return Redirect::route('users.choice');
-//        }
-//    }else{
-//        App::abort(403);
-//    }
+Route::filter('auth', function () {
+	if (!Sentry::check()) {
+		new Notification(
+			[
+				'type' => 'danger',
+				'message' => 'Ops, Você precisa se logar antes <a href="' . URL::route('users.login') . '">clique aqui</a> para logar',
+			]
+		);
+		return Redirect::back();
+	}
 });
 
-
-Route::filter('auth.basic', function()
-{
+Route::filter('auth.basic', function () {
 	return Auth::basic();
 });
 
@@ -60,11 +55,13 @@ Route::filter('auth.basic', function()
 | it simply checks that the current user is not logged in. A redirect
 | response will be issued if they are, which you may freely change.
 |
-*/
+ */
 
-Route::filter('guest', function()
-{
-	if (Auth::check()) return Redirect::to('/');
+Route::filter('guest', function () {
+	if (Auth::check()) {
+		return Redirect::to('/');
+	}
+
 });
 
 /*
@@ -76,12 +73,10 @@ Route::filter('guest', function()
 | cross-site request forgery attacks. If this special token in a user
 | session does not match the one given in this request, we'll bail.
 |
-*/
+ */
 
-Route::filter('csrf', function()
-{
-	if (Session::token() !== Input::get('_token'))
-	{
+Route::filter('csrf', function () {
+	if (Session::token() !== Input::get('_token')) {
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });

@@ -9,34 +9,32 @@
 | It's a breeze. Simply tell Laravel the URIs it should respond to
 | and give it the Closure to execute when that URI is requested.
 |
-*/
+ */
 
-Route::get('/', ["as" => "root", function()
-{
-	return View::make('hello');
-}], "root");
+Route::get('/', ["as" => "root", "uses" => "JobsController@index"]);
 
 Route::controller("/users", "UserController", [
-    "getLogin" => "users.login",
-    "postLogin" => "users.login.post",
-    "getRegister" => "users.register",
-    "postRegister" => "users.register.post",
-    "getChoice" => "users.choice",
-    "getActive" => "users.active",
+	"getLogin" => "users.login",
+	"postLogin" => "users.login.post",
+	"getRegister" => "users.register",
+	"postRegister" => "users.register.post",
+	"getChoice" => "users.choice",
+	"getActive" => "users.active",
 ]);
 
-Route::group(['before' => 'auth'], function(){
-    Route::get('/test', function()
-    {
-       dd('teste');
-    });
-
-});
 Route::controller("/company", "CompanyController", [
-    "getRegister" => "company.register"
+	"getRegister" => "company.register",
 ]);
 
 Route::controller("/person", "PersonController", [
-    "getRegister" => "person.register"
+	"getRegister" => "person.register",
 ]);
 
+/*
+- Rotas que so podem ser usadas por pessoas que estiverem logadas
+ */
+Route::resource('jobs', 'JobsController', ['only' => ['index', 'show']]);
+
+Route::group(['before' => 'auth'], function () {
+	Route::get('jobs/applay/{slug}', ['as' => 'jobs.applay', 'uses' => 'JobsController@applay']);
+});
