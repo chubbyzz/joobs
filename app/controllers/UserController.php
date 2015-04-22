@@ -6,12 +6,17 @@ class UserController extends \BaseController {
 		return View::make("users.login");
 	}
 	public function postLogin() {
-		if(User::login(Input::only(["email","password"], Input::get("remember")))){
+		if (User::login(Input::only(["email", "password"], Input::get("remember")))) {
 
 			return Redirect::route("root");
-		}else{
+		} else {
 			return Redirect::back();
 		}
+	}
+
+	public function getLogout() {
+		Sentry::logout();
+		return Redirect::route('root');
 	}
 
 	public function getRegister() {
@@ -24,25 +29,22 @@ class UserController extends \BaseController {
 		return Redirect::back();
 	}
 
-	public function getChoice()
-	{
+	public function getChoice() {
 		return View::make("users.choice");
 	}
 
-    public function getActive($id, $code){
-        try{
-            $user = User::findOrFail($id);
-            $user->active($code);
+	public function getActive($id, $code) {
+		try {
+			$user = User::findOrFail($id);
+			$user->active($code);
 			return Redirect::route("users.login");
-        }
-        catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e)
-        {
-            new Notification(["message" => "Usuário não encontrado", "type" => "danger"]);
+		} catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+			new Notification(["message" => "Usuário não encontrado", "type" => "danger"]);
 			return Redirect::route("users.login");
-        }
-    }
+		}
+	}
 
-	public function getMail(){
+	public function getMail() {
 		return View::make("emails.users.active")->with(['id' => 1, 'code' => 0]);
 	}
 }

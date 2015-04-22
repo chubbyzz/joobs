@@ -331,8 +331,8 @@ abstract class Ardent extends Model {
 
             case self::MORPH_ONE:
             case self::MORPH_MANY:
-                $verifyArgs(array('type', 'id'), array('name'));
-                return $this->$relationType($relation[1], $relation['name'], $relation['type'], $relation['id']);
+            $verifyArgs(array('type', 'id'), array('name'));
+            return $this->$relationType($relation[1], $relation['name'], $relation['type'], $relation['id']);
         }
     }
 

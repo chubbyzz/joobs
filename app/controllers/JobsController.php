@@ -25,7 +25,7 @@ class JobsController extends \BaseController {
 	 * @return Response
 	 */
 	public function create() {
-		return Response::json(Job::all());
+		return View::make('jobs.create');
 	}
 
 	/**

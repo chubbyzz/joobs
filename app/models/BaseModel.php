@@ -40,7 +40,6 @@ class BaseModel extends Ardent {
 		}else{
 			$errors = "<p>".implode("</p><p>", $this->errors()->all())."</p>" ;
 			new Notification(["message" => $errors, "type" => "danger"]);
-			DB::rollBack();
 			return false;
 		}
 	}

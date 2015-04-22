@@ -1,1 +1,7 @@
-/var/www/app/views/jobs/create.blade.php
+@extends('layout')
+@section('title')
+	Joobs | Criar nova oferta de emprego
+@stop
+@section('body')
+
+@stop

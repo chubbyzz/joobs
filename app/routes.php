@@ -16,14 +16,25 @@ Route::get('/', ["as" => "root", "uses" => "JobsController@index"]);
 Route::controller("/users", "UserController", [
 	"getLogin" => "users.login",
 	"postLogin" => "users.login.post",
+	"getLogout" => "users.logout",
 	"getRegister" => "users.register",
 	"postRegister" => "users.register.post",
 	"getChoice" => "users.choice",
 	"getActive" => "users.active",
 ]);
 
-Route::controller("/company", "CompanyController", [
-	"getRegister" => "company.register",
+Route::group(['before' => 'auth'], function () {
+	// Route::group(['before' => 'authCompany'], function () {
+	// 	Route::resource('jobs', 'JobsController', ['only' => ['create']]);
+	// });
+	Route::get('/test', function () {
+		dd('teste');
+	});
+
+});
+
+Route::resource("/company", "CompanyController", [
+	'only' => ['create', 'store'],
 ]);
 
 Route::controller("/person", "PersonController", [

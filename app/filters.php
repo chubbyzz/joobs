@@ -42,6 +42,35 @@ Route::filter('auth', function () {
 	}
 });
 
+Route::filter('authCompany', function () {
+
+	$type_to_check = 'Company';
+	// if (is_null($type) || $type != $type_to_check) {
+	// 	new Notification(
+	// 		[
+	// 			'type' => 'danger',
+	// 			'message' => 'Ops, apenas empresas podem acessar essa area',
+	// 		]
+	// 	);
+	// 	return Redirect::back();
+	// }
+});
+// Route::filter('authCandidate', AuthByTypeAccount('Candidate'));
+
+function AuthByTypeAccount($type_to_check) {
+	$type = get_class(User::current()->owner);
+
+	if (is_null($type) || $type != $type_to_check) {
+		new Notification(
+			[
+				'type' => 'danger',
+				'message' => 'Ops, Você precisa se logar antes <a href="' . URL::route('users.login') . '">clique aqui</a> para logar',
+			]
+		);
+		return Redirect::to('root');
+	}
+}
+
 Route::filter('auth.basic', function () {
 	return Auth::basic();
 });

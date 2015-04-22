@@ -7,10 +7,13 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddAddressTable' => $baseDir . '/app/database/migrations/2015_02_04_111045_add_address_table.php',
+    'AddCompanyTable' => $baseDir . '/app/database/migrations/2015_04_06_225438_add_company_table.php',
+    'AddDateFieldsToTablesWithout' => $baseDir . '/app/database/migrations/2015_04_15_223818_add_date_fields_to_tables_without.php',
     'AddExperienceTable' => $baseDir . '/app/database/migrations/2015_02_04_110954_add_experience_table.php',
     'AddIconToToolTable' => $baseDir . '/app/database/migrations/2015_02_11_161807_add_icon_to_tool_table.php',
     'AddOwnerToUserTable' => $baseDir . '/app/database/migrations/2015_02_20_002652_add_owner_to_user_table.php',
     'AddPhoneTable' => $baseDir . '/app/database/migrations/2015_02_04_111056_add_phone_table.php',
+    'AddPrimaryKeyToCompany' => $baseDir . '/app/database/migrations/2015_04_15_233713_add_primary_key_to_company.php',
     'AddScholarityTable' => $baseDir . '/app/database/migrations/2015_02_04_111032_add_scholarity_table.php',
     'AddSlugToJobsTable' => $baseDir . '/app/database/migrations/2015_04_01_020709_add_slug_to_jobs_table.php',
     'AddToolTable' => $baseDir . '/app/database/migrations/2015_02_04_110924_add_tool_table.php',
@@ -127,7 +130,9 @@ return array(
     'ClassPreloader\\Parser\\DirVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/DirVisitor.php',
     'ClassPreloader\\Parser\\FileVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/FileVisitor.php',
     'ClassPreloader\\Parser\\NodeTraverser' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/NodeTraverser.php',
+    'Company' => $baseDir . '/app/models/Company.php',
     'CompanyController' => $baseDir . '/app/controllers/CompanyController.php',
+    'CompanyTableSeeder' => $baseDir . '/app/database/seeds/CompanyTableSeeder.php',
     'CreateCandidateTable' => $baseDir . '/app/database/migrations/2015_02_02_175435_create_candidate_table.php',
     'CreateJobsTable' => $baseDir . '/app/database/migrations/2015_03_25_003739_create_jobs_table.php',
     'CreateToolableTable' => $baseDir . '/app/database/migrations/2015_02_11_162602_create_toolable_table.php',
