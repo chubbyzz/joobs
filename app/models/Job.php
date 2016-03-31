@@ -1,6 +1,20 @@
 <?php
 
+use Nicolaslopezj\Searchable\SearchableTrait;
+
 class Job extends \Eloquent {
+	use SearchableTrait;
+
+	protected $searchable = [
+//		'title', 'location', 'requirements', 'type'
+		'columns' => [
+			'jobs.title' => 10,
+			'jobs.location' => 8,
+			'jobs.requirements' => 5,
+			'jobs.type' => 10,
+		]
+	];
+
 	protected $fillable = ['title', 'description', 'location', 'number', 'salary', 'requirements', 'benefits', 'type', 'form'];
 
 	public static $rule = [

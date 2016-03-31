@@ -51,8 +51,7 @@ return array(
 		'Former\FormerServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		'Barryvdh\Debugbar\ServiceProvider',
-		'Barryvdh\Debugbar\ServiceProvider',
-
+		'Barryvdh\Debugbar\ServiceProvider'
 	),
 
 	'manifest' => storage_path() . '/meta',
@@ -101,8 +100,7 @@ return array(
 		'Sentry' => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
 		'Ardent' => 'LaravelBook\Ardent\Ardent',
 		'Former' => 'Former\Facades\Former',
-		'Debugbar' => 'Barryvdh\Debugbar\Facade',
-
+		'Debugbar' => 'Barryvdh\Debugbar\Facade'
 	),
 
 );

@@ -7,10 +7,10 @@ Oportunidades
 @stop
 @section('body')
 <div class="col-lg-8 col-lg-offset-2">
-	{{ Form::model(null, ['role'=>'form', 'class' => 'form-horizontal']) }}
+	{{ Form::open(['route' => 'jobs.search', 'method' => 'GET', 'role'=>'form', 'class' => 'form-horizontal']) }}
 	<div class="form-group">
 		<div class="input-group">
-			{{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Pesquise por palavras chaves como, Java, Php, Ruby, São Paulo ou Empresa x']) }}
+			{{ Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Pesquise por palavras chaves como, Java, Php, Ruby, São Paulo ou Empresa x']) }}
 			<div class="input-group-btn">
 				{{ Form::submit('Pesquisar', ['class' => 'btn btn-primary'])}}
 			</div>

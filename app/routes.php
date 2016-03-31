@@ -44,6 +44,7 @@ Route::controller("/person", "PersonController", [
 /*
 - Rotas que so podem ser usadas por pessoas que estiverem logadas
  */
+Route::get('jobs/search', ['as' => 'jobs.search', 'uses' => 'JobsController@search']);
 Route::resource('jobs', 'JobsController', ['only' => ['index', 'show']]);
 
 Route::group(['before' => 'auth'], function () {

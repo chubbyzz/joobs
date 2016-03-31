@@ -6,6 +6,15 @@ class JobsController extends \BaseController {
 		dd('applaied');
 	}
 
+	public function search()
+	{
+		$search = Input::get('search');
+
+		$jobs = Job::search($search)->paginate(9);
+
+		return View::make('jobs.index')->with('jobs', $jobs);
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 * GET /jobs

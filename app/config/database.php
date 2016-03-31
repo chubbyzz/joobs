@@ -8,7 +8,7 @@ return array(
 			'port' => '8889',
 			'driver' => 'mysql',
 			'host' => 'localhost',
-			'database' => 'database',
+			'database' => 'joobs',
 			'username' => 'root',
 			//'password' => '@SENHAdojeff12',
 			'charset' => 'utf8',
